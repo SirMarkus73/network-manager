@@ -1,11 +1,13 @@
 {
-	"name": "network-manager",
+	"name": "nmanager",
 	"version": "0.0.1",
 	"description": "A network manager cli",
 	"main": "dist/index.js",
 	"type": "module",
 	"scripts": {
 		"build": "tsc",
+		"dev": "tsc --watch",
+		"start": "node dist/index.js",
 		"format": "biome format --write",
 		"lint": "biome lint && tsc --noEmit"
 	},
