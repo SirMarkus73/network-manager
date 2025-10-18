@@ -1,0 +1,29 @@
+{
+	"name": "network-manager",
+	"version": "0.0.1",
+	"description": "A network manager cli",
+	"main": "dist/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"cli",
+		"network",
+		"manager"
+	],
+	"bin": {
+		"nmanager": "dist/index.js"
+	},
+	"author": "Marcos Barrero",
+	"license": "MIT",
+	"packageManager": "pnpm@10.18.3",
+	"dependencies": {
+		"commander": "^14.0.1"
+	},
+	"devDependencies": {
+		"typescript": "^5.6.3",
+		"@types/node": "^22.7.5"
+	}
+}
