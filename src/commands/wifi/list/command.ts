@@ -11,9 +11,7 @@ const fieldOption = new Option("-f, --fields <FIELD...>", "Fields to display")
 	.default(["active", "ssid", "bssid", "signal", "chan"])
 	.choices(WIFI_FIELD_NAMES);
 
-listCommand.addOption(fieldOption);
-
-listCommand.action(async (options) => {
+listCommand.addOption(fieldOption).action(async (options) => {
 	const connections = await getWifiConnections(options.fields);
 
 	console.table(connections);
