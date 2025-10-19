@@ -15,6 +15,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.2.6
         version: 2.2.6
+      '@commander-js/extra-typings':
+        specifier: ^14.0.0
+        version: 14.0.0(commander@14.0.1)
       '@types/node':
         specifier: ^22.7.5
         version: 22.18.11
@@ -77,6 +80,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@commander-js/extra-typings@14.0.0':
+    resolution: {integrity: sha512-hIn0ncNaJRLkZrxBIp5AsW/eXEHNKYQBh0aPdoUqNgD+Io3NIykQqpKFyKcuasZhicGaEZJX/JBSIkZ4e5x8Dg==}
+    peerDependencies:
+      commander: ~14.0.0
+
   '@types/node@22.18.11':
     resolution: {integrity: sha512-Gd33J2XIrXurb+eT2ktze3rJAfAp9ZNjlBdh4SVgyrKEOADwCbdUDaK7QgJno8Ue4kcajscsKqu6n8OBG3hhCQ==}
 
@@ -128,6 +136,10 @@ snapshots:
 
   '@biomejs/cli-win32-x64@2.2.6':
     optional: true
+
+  '@commander-js/extra-typings@14.0.0(commander@14.0.1)':
+    dependencies:
+      commander: 14.0.1
 
   '@types/node@22.18.11':
     dependencies:
