@@ -1,4 +1,5 @@
 import { createCommand, Option } from "commander";
+import { createSpinner } from "nanospinner";
 import { getWifiConnections } from "../../../actions/wifi/list/action.js";
 import { WIFI_FIELD_NAMES } from "../../../types/wifi.js";
 
@@ -12,7 +13,10 @@ const fieldOption = new Option("-f, --fields <FIELD...>", "Fields to display")
 	.choices(WIFI_FIELD_NAMES);
 
 listCommand.addOption(fieldOption).action(async (options) => {
+	const spinner = createSpinner("Fetching WiFi connections...").start();
 	const connections = await getWifiConnections(options.fields);
+
+	spinner.success("Fetched WiFi connections");
 
 	console.table(connections);
 });

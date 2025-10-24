@@ -24,7 +24,8 @@
 	"packageManager": "pnpm@10.18.3",
 	"dependencies": {
 		"@inquirer/prompts": "^7.9.0",
-		"commander": "^14.0.1"
+		"commander": "^14.0.1",
+		"nanospinner": "^1.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.6",

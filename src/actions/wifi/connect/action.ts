@@ -1,5 +1,5 @@
 import { password, select } from "@inquirer/prompts";
-import { program } from "commander";
+import { createSpinner } from "nanospinner";
 import { exec } from "../../../lib/exec.js";
 import { getWifiConnections } from "../list/action.js";
 
@@ -7,20 +7,19 @@ export async function connectAction(SSID: string, password: string) {
 	try {
 		await exec(`nmcli device wifi connect "${SSID}" password "${password}"`);
 	} catch (_e) {
-		program.error(`Unable to connect wifi with SSID: ${SSID}`, {
-			code: "CONN_ERR",
-			exitCode: 2,
-		});
+		throw new Error(`Unable to connect wifi with SSID: ${SSID}`);
 	}
 }
 
 export async function connectInteractiveAction() {
+	const fetchSpinner = createSpinner("Fetching WiFi connections...").start();
 	const connections = await getWifiConnections([
 		"active",
 		"ssid",
 		"security",
 		"signal",
 	]);
+	fetchSpinner.success("Fetched WiFi connections");
 
 	const options = connections
 		.filter((conn) => conn.ssid)
@@ -40,5 +39,16 @@ export async function connectInteractiveAction() {
 		mask: "*",
 	});
 
-	await connectAction(wifiSSID, wifiPassword);
+	const connectSpinner = createSpinner("Connecting to WiFi...").start();
+
+	try {
+		await connectAction(wifiSSID, wifiPassword);
+		connectSpinner.success("Connected to WiFi");
+	} catch (error: unknown) {
+		if (error instanceof Error) {
+			connectSpinner.error(error.message);
+		} else {
+			connectSpinner.error("Unknown error");
+		}
+	}
 }
