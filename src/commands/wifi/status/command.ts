@@ -1,4 +1,5 @@
 import { createCommand, Option } from "commander";
+import { createSpinner } from "nanospinner";
 import { getWifiStatus } from "../../../actions/wifi/status/action.js";
 import { WIFI_FIELD_NAMES } from "../../../types/wifi.js";
 
@@ -12,7 +13,9 @@ const fieldOption = new Option("-f, --fields <FIELD...>", "Fields to display")
 	.choices(WIFI_FIELD_NAMES);
 
 statusCommand.addOption(fieldOption).action(async (options) => {
+	const spinner = createSpinner("Fetching WiFi status...").start();
 	const connections = await getWifiStatus(options.fields);
+	spinner.success("Fetched WiFi status");
 
 	console.table(connections);
 });

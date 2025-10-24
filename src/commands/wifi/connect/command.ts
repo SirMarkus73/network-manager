@@ -1,5 +1,6 @@
 import { password as passwordPrompt } from "@inquirer/prompts";
 import { createArgument, createCommand, createOption } from "commander";
+import { createSpinner } from "nanospinner";
 import {
 	connectAction,
 	connectInteractiveAction,
@@ -25,6 +26,7 @@ connectCommand
 	.addOption(passwordOption)
 	.addOption(interactiveOption)
 	.action(async (SSID, { password, interactive }) => {
+		const spinner = createSpinner("Connecting to WiFi...");
 		// Validate: interactive mode cannot be combined with SSID or password
 		if (interactive && (SSID || password)) {
 			connectCommand.error(
@@ -57,8 +59,17 @@ connectCommand
 					message: "Password of the wifi:",
 					mask: true,
 				}));
-
-			connectAction(SSID, connectionPassword);
+			spinner.start();
+			try {
+				await connectAction(SSID, connectionPassword);
+				spinner.success("Connected to WiFi");
+			} catch (error: unknown) {
+				if (error instanceof Error) {
+					spinner.error(error.message);
+				} else {
+					spinner.error("Unknown error");
+				}
+			}
 			return;
 		}
 
