@@ -1,7 +1,7 @@
 import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
-import { getWifiStatus } from "../../../actions/wifi/status/action.js";
-import { WIFI_FIELD_NAMES } from "../../../types/wifi.js";
+import { getWifiStatus } from "@/actions/wifi/status/action.js";
+import { WIFI_FIELD_NAMES } from "@/constants/wifi.js";
 
 export const statusCommand = createCommand("status");
 

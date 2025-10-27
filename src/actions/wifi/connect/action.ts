@@ -1,7 +1,7 @@
 import { password, select } from "@inquirer/prompts";
 import { createSpinner } from "nanospinner";
-import { exec } from "../../../lib/exec.js";
-import { getWifiConnections } from "../list/action.js";
+import { getWifiConnections } from "@/actions/wifi/list/action.js";
+import { exec } from "@/lib/exec.js";
 
 export async function connectAction(SSID: string, password: string) {
 	try {

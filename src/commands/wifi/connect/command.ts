@@ -4,7 +4,7 @@ import { createSpinner } from "nanospinner";
 import {
 	connectAction,
 	connectInteractiveAction,
-} from "../../../actions/wifi/connect/action.js";
+} from "@/actions/wifi/connect/action.js";
 
 export const connectCommand = createCommand("connect");
 

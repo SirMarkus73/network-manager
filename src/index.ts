@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { Command, createOption } from "commander";
+import { commands } from "@/actions/action.js";
+import { wifiCommand } from "@/commands/wifi/command.js";
 import packageJson from "../package.json" with { type: "json" };
-import { commands } from "./actions/action.js";
-import { wifiCommand } from "./commands/wifi/command.js";
 
 const program = new Command();
 
