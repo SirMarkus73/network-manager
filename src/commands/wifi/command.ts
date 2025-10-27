@@ -1,7 +1,7 @@
 import { createCommand } from "commander";
-import { connectCommand } from "./connect/command.js";
-import { listCommand } from "./list/command.js";
-import { statusCommand } from "./status/command.js";
+import { connectCommand } from "@/commands/wifi/connect/command.js";
+import { listCommand } from "@/commands/wifi/list/command.js";
+import { statusCommand } from "@/commands/wifi/status/command.js";
 
 export const wifiCommand = createCommand("wifi");
 

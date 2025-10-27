@@ -1,5 +1,5 @@
-import { exec } from "../../../lib/exec.js";
-import type { ConnectionList, WifiFieldName } from "../../../types/wifi.js";
+import { exec } from "@/lib/exec.js";
+import type { ConnectionList, WifiFieldName } from "@/types/wifi.js";
 
 export async function getWifiConnections<F extends readonly WifiFieldName[]>(
 	fieldNames: F,
