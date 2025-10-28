@@ -2,7 +2,6 @@ name: ci - Lint Code
 run-name: ${{ github.ref_name }} - Checking code of ${{ github.actor }}
 on:
   push:
-  pull_request:
 jobs:
   ci:
     name: CI - Lint Code
