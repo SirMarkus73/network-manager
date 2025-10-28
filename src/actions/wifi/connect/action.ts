@@ -26,7 +26,7 @@ export async function connectInteractiveAction() {
 		.map((conn) => ({
 			name: `(${conn.security}) - (${conn.signal} / 100) | ${conn.ssid}`,
 			value: String(conn.ssid),
-			disabled: Boolean(conn.active) ? "Currently connected..." : false,
+			disabled: conn.active ? "Currently connected..." : false,
 		}));
 
 	const wifiSSID = await select({
