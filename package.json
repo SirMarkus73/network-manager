@@ -9,7 +9,10 @@
 		"dev": "tsc --watch",
 		"start": "node dist/index.js",
 		"format": "biome format --write",
-		"lint": "biome lint && tsc --noEmit"
+		"lint": "biome lint && tsc --noEmit",
+		"ci:biome": "biome ci",
+		"ci:tsc": "tsc --noEmit",
+		"ci": "pnpm run ci:biome && pnpm run ci:tsc"
 	},
 	"keywords": [
 		"cli",
