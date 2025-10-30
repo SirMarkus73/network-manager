@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsc && tsc-alias",
-		"dev": "node --run build && node --run start",
+		"dev": "pnpm run build && pnpm run start",
 		"start": "node dist/index.js",
 		"format": "biome format --write",
 		"lint": "biome lint && tsc --noEmit",
