@@ -1,3 +1,4 @@
+import Table from "cli-table3";
 import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
 import { getWifiConnections } from "@/actions/wifi/list/action.js";
@@ -18,5 +19,10 @@ listCommand.addOption(fieldOption).action(async (options) => {
 
 	spinner.success("Fetched WiFi connections");
 
-	console.table(connections);
+	const table = new Table({ head: Array.from(options.fields) });
+	const parsedValues = connections.map((val) => Object.values(val));
+
+	table.push(...parsedValues);
+
+	console.log(table.toString());
 });
