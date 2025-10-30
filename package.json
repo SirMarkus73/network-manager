@@ -43,7 +43,16 @@
 		"@biomejs/biome": "2.2.6",
 		"@commander-js/extra-typings": "^14.0.0",
 		"@types/node": "^22.7.5",
+		"semantic-release": "^25.0.1",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.6.3"
+	},
+	"files": [
+		"dist",
+		"README.MD",
+		"LICENSE"
+	],
+	"publishConfig": {
+		"access": "public"
 	}
 }
