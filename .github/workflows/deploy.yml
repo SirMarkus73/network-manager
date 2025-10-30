@@ -1,45 +1,44 @@
 name: "Deploy to npm"
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 permissions:
-    contents: write
-    issues: write
-    pull-requests: write
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
-    deploy:
-        name: "Deploy to npm"
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v5.0.0
+  deploy:
+    name: "Deploy to npm"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v6.0.0
-              with:
-                  node-version: 20
-                  cache: "pnpm"
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.0.0
+        with:
+          cache: "pnpm"
 
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-            - name: Build the application
-              run: pnpm run build
+      - name: Build the application
+        run: pnpm run build
 
-            - name: Audit signatures
-              run: pnpm audit signatures
+      - name: Audit signatures
+        run: pnpm audit signatures
 
-            - name: Release
-              env:
-                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-                  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-              run: pnpm exec semantic-release
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: pnpm exec semantic-release
