@@ -20,31 +20,9 @@ A cross-platform CLI to configure, monitor, and troubleshoot network connections
 
 1. 📥 Clone the repository:
 ```bash
-# SSH
-git clone git@github.com:SirMarkus73/network-manager.git
-# HTTPS
-git clone https://github.com/SirMarkus73/network-manager.git
+pnpm i nmanager -g
 ```
 
-2. 📂 Navigate to the project directory:
-```bash
-cd network-manager
-```
-
-3. 📦 Install dependencies:
-```bash
-pnpm install
-```
-
-4. 🏗️ Build the application:
-```bash
-pnpm build
-```
-
-5. 🌍 Install the application globally:
-```bash
-pnpm install -g
-```
 
 ## Usage
 
