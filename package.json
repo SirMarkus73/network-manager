@@ -4,6 +4,11 @@
 	"description": "A network manager cli",
 	"main": "dist/index.js",
 	"type": "module",
+	"homepage": "https://github.com/SirMarkus73/network-manager",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SirMarkus73/network-manager"
+	},
 	"scripts": {
 		"build": "tsc && tsc-alias",
 		"dev": "pnpm run build && pnpm run start",
