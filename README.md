@@ -10,6 +10,7 @@ A cross-platform CLI to configure, monitor, and troubleshoot network connections
   - [Usage](#markdown-header-usage)
   - [Contributing](#markdown-header-contributing)
   - [License](#markdown-header-license)
+  - [Changelog](#markdown-header-changelog)
 
 ## Features
 
@@ -18,11 +19,9 @@ A cross-platform CLI to configure, monitor, and troubleshoot network connections
 
 ## Installation
 
-1. 📥 Clone the repository:
 ```bash
 pnpm i nmanager -g
 ```
-
 
 ## Usage
 
@@ -44,3 +43,7 @@ nmanager --commands
 ## License
 
 📝 Network Manager (nmanager) is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+See the full changelog in the [CHANGELOG.md](CHANGELOG.md) file.
