@@ -11,6 +11,7 @@
 	},
 	"scripts": {
 		"build": "tsc && tsc-alias",
+		"commit": "cz",
 		"dev": "pnpm run build && pnpm run start",
 		"start": "node dist/index.js",
 		"format": "biome format --write",
@@ -45,6 +46,7 @@
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@types/node": "^22.7.5",
+		"cz-conventional-changelog": "^3.3.0",
 		"semantic-release": "^25.0.1",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.6.3"
@@ -57,5 +59,10 @@
 	],
 	"publishConfig": {
 		"access": "public"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
