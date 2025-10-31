@@ -2,8 +2,9 @@ import chalk from "chalk";
 import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
 import { getWifiStatus } from "@/actions/wifi/status/action.js";
-import { WIFI_FIELD_NAMES } from "@/constants/wifi.js";
+import { WIFI_CHOICES } from "@/constants/wifi.js";
 import { formatWifiTable } from "@/lib/formatWifiTable.js";
+import type { WifiFieldName } from "@/types/wifi.js";
 
 export const statusCommand = createCommand("status");
 
@@ -12,18 +13,19 @@ statusCommand.alias("ps");
 
 const fieldOption = new Option("-f, --fields <FIELD...>", "Fields to display")
 	.default(["active", "ssid", "bssid", "signal", "chan"])
-	.choices(WIFI_FIELD_NAMES);
+	.choices(WIFI_CHOICES);
 
 statusCommand.addOption(fieldOption).action(async (options) => {
+	const fields: WifiFieldName[] = Array.from(options.fields);
 	const spinner = createSpinner("Fetching WiFi status...").start();
-	const connection = await getWifiStatus(options.fields);
+	const connections = await getWifiStatus(fields);
 	spinner.success("Fetched WiFi status");
 
-	if (!connection) {
+	if (!connections) {
 		console.log(chalk.red("You are not connected to any WiFi network."));
 		return;
 	}
 
-	const table = formatWifiTable(Array.from(options.fields), [connection]);
+	const table = formatWifiTable(fields, [connections]);
 	console.log(table);
 });

@@ -1,7 +1,15 @@
-import type { WIFI_FIELD_NAMES } from "@/constants/wifi.js";
+export type WifiRow = {
+	active?: boolean;
+	ssid?: string;
+	bssid?: string;
+	mode?: string;
+	chan?: number;
+	freq?: number;
+	signal?: number;
+	security?: string;
+	"wpa-flags"?: string;
+	"rsn-flags"?: string;
+};
 
-export type WifiFieldName = (typeof WIFI_FIELD_NAMES)[number];
-
-export type ConnectionList<F extends readonly WifiFieldName[]> = Array<
-	Record<F[number], string | boolean | null>
->;
+export type WifiFieldName = keyof WifiRow;
+export type WifiFieldValue = WifiRow[keyof WifiRow];

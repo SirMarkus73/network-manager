@@ -1,12 +1,14 @@
-export const WIFI_FIELD_NAMES = [
+import type { WifiFieldName } from "@/types/wifi.js";
+
+export const WIFI_CHOICES: WifiFieldName[] = [
 	"active",
-	"ssid",
 	"bssid",
-	"mode",
 	"chan",
 	"freq",
-	"signal",
-	"security",
-	"wpa-flags",
+	"mode",
 	"rsn-flags",
+	"security",
+	"signal",
+	"ssid",
+	"wpa-flags",
 ] as const;
