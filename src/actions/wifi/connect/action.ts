@@ -35,7 +35,7 @@ export async function connectInteractiveAction() {
 	});
 
 	const wifiPassword = await password({
-		message: "Introduce la contraseña de la red wifi",
+		message: "Wifi password",
 		mask: "*",
 	});
 
