@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/SirMarkus73/network-manager/compare/v1.2.2...v1.3.0) (2025-10-31)
+
+
+### Bug Fixes
+
+* **docs:** update installation docs ([c08a976](https://github.com/SirMarkus73/network-manager/commit/c08a9768f5585acdafb895c17fa9bafb304f05fe))
+
+
+### Features
+
+* **docs:** add Changelog section to README ([42fe234](https://github.com/SirMarkus73/network-manager/commit/42fe2345b886ff4b249af0b5065e28b1475dd8cf))
+
 ## [1.2.2](https://github.com/SirMarkus73/network-manager/compare/v1.2.1...v1.2.2) (2025-10-31)
 
 
