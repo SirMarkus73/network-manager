@@ -18,7 +18,6 @@ A cross-platform CLI to configure, monitor, and troubleshoot network connections
 
 ## Installation
 
-1. 📥 Clone the repository:
 ```bash
 pnpm i nmanager -g
 ```
