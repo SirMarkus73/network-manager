@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/SirMarkus73/network-manager/compare/v1.4.0...v1.5.0) (2025-10-31)
+
+
+### Bug Fixes
+
+* **wifi:** add a missing return statement ([c1d3e43](https://github.com/SirMarkus73/network-manager/commit/c1d3e437b439b703a89f94d26cb0557582353f8f)), closes [#41](https://github.com/SirMarkus73/network-manager/issues/41)
+* **wifi:** add new line when exiting the program ([c318b93](https://github.com/SirMarkus73/network-manager/commit/c318b93883f3a25e8b214cba0f50a9bc2a6db637)), closes [#41](https://github.com/SirMarkus73/network-manager/issues/41)
+
+
+### Features
+
+* **wifi:** add watch option to wifi list (--watch or -w) ([0a35a20](https://github.com/SirMarkus73/network-manager/commit/0a35a20ad35d59a5decce5f0c2b7f2a5c2e805d1)), closes [#41](https://github.com/SirMarkus73/network-manager/issues/41)
+* **wifi:** implement watch with a async generator ([3480262](https://github.com/SirMarkus73/network-manager/commit/34802622d654d946a674afe1a90e9ba81b22ae54)), closes [#41](https://github.com/SirMarkus73/network-manager/issues/41)
+
 # [1.4.0](https://github.com/SirMarkus73/network-manager/compare/v1.3.1...v1.4.0) (2025-10-31)
 
 
