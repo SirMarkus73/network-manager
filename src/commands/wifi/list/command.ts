@@ -3,6 +3,7 @@ import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
 import { getWifiConnections } from "@/actions/wifi/list/action.js";
 import { WIFI_FIELD_NAMES } from "@/constants/wifi.js";
+import { formatWifiTable } from "@/lib/formatWifiTable.js";
 
 export const listCommand = createCommand("list");
 
@@ -19,10 +20,7 @@ listCommand.addOption(fieldOption).action(async (options) => {
 
 	spinner.success("Fetched WiFi connections");
 
-	const table = new Table({ head: Array.from(options.fields) });
-	const parsedValues = connections.map((val) => Object.values(val));
+	const table = formatWifiTable(Array.from(options.fields), connections);
 
-	table.push(...parsedValues);
-
-	console.log(table.toString());
+	console.log(table);
 });
