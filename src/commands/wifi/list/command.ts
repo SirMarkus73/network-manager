@@ -34,6 +34,7 @@ listCommand
 			const table = formatWifiTable(fields, connections);
 
 			process.stdout.write(`${table}\n`);
+			return;
 		}
 
 		// Configure stdin to listen for 'q' keypress to exit
