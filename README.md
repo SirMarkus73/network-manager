@@ -1,7 +1,7 @@
 # Network Manager (nmanager)
 
 ![NPM Downloads](https://img.shields.io/npm/dm/nmanager)
-![GitHub License](https://img.shields.io/github/license/SirMarkus73/network-manager)
+[![GitHub License](https://img.shields.io/github/license/SirMarkus73/network-manager)](LICENSE)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/SirMarkus73/network-manager/deploy.yml)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
@@ -25,7 +25,7 @@ A cross-platform CLI to configure, monitor, and troubleshoot network connections
 ## Installation
 
 ```bash
-pnpm i nmanager -g
+pnpm install -g nmanager
 ```
 
 ## Usage
@@ -37,6 +37,9 @@ nmanager --help
 ```
 
 🧭 List all commands and subcommands:
+
+The `nmanager --commands` command displays a list of all available commands and subcommands, helping you explore the CLI's full capabilities.
+
 ```bash
 nmanager --commands
 ```
@@ -49,9 +52,10 @@ We use [Commitizen](https://github.com/commitizen/cz-cli) to format commit messa
 
 Please use Commitizen when creating commits. Make sure to run Commitizen commands from the project root directory. Install and run it using one of the options below:
 
-```bash
+
 # Install globally
-pnpm install -g commitizen
+```bash
+pnpm i -g commitizen
 ```
 
 Then, to create a commit:
