@@ -43,6 +43,7 @@ listCommand
 
 		process.stdin.on("data", (key: string) => {
 			if (key.toLowerCase() === "q" || key === "\u0003") {
+				process.stdout.write("\n");
 				process.stdout.write(ansi.cursorShow);
 				process.stdin.setRawMode(false);
 				process.stdin.pause();
