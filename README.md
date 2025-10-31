@@ -3,14 +3,14 @@
 A cross-platform CLI to configure, monitor, and troubleshoot network connections on Linux (Windows support planned). 🛠️
 
 ## Contents
-- [Network Manager (nmanager)](#markdown-header-network-manager-nmanager)
-  - [Contents](#markdown-header-contents)
-  - [Features](#markdown-header-features)
-  - [Installation](#markdown-header-installation)
-  - [Usage](#markdown-header-usage)
-  - [Contributing](#markdown-header-contributing)
-  - [License](#markdown-header-license)
-  - [Changelog](#markdown-header-changelog)
+- [Network Manager (nmanager)](#network-manager-nmanager)
+  - [Contents](#contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Changelog](#changelog)
 
 ## Features
 
