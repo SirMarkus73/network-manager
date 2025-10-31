@@ -1,5 +1,10 @@
 # Network Manager (nmanager)
 
+![NPM Downloads](https://img.shields.io/npm/dm/nmanager)
+![GitHub License](https://img.shields.io/github/license/SirMarkus73/network-manager)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/SirMarkus73/network-manager/deploy.yml)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 A cross-platform CLI to configure, monitor, and troubleshoot network connections on Linux (Windows support planned). 🛠️
 
 ## Contents
