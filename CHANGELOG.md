@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/SirMarkus73/network-manager/compare/v1.3.0...v1.3.1) (2025-10-31)
+
+
+### Bug Fixes
+
+* **docs:** correct markdown links in README contents section ([7aa016c](https://github.com/SirMarkus73/network-manager/commit/7aa016cefdbeb28b36454669c1486ede6fdee956))
+
 # [1.3.0](https://github.com/SirMarkus73/network-manager/compare/v1.2.2...v1.3.0) (2025-10-31)
 
 
