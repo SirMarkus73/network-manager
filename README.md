@@ -45,6 +45,27 @@ nmanager --commands
 
 🤝 Contributions are welcome! Fork the repository and open a pull request.
 
+We use [Commitizen](https://github.com/commitizen/cz-cli) to format commit messages and keep a consistent, conventional commit history (this helps with changelogs and releases).
+
+Please use Commitizen when creating commits. Make sure to run Commitizen commands from the project root directory. Install and run it using one of the options below:
+
+```bash
+# Install globally
+pnpm install -g commitizen
+```
+
+Then, to create a commit:
+
+```bash
+pnpm commit
+# or
+git cz
+# or
+pnpx cz
+```
+
+Thanks for following the project's commit conventions — it makes releases and changelogs much smoother.
+
 ## License
 
 📝 Network Manager (nmanager) is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
