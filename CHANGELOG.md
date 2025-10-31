@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/SirMarkus73/network-manager/compare/v1.2.1...v1.2.2) (2025-10-31)
+
+
+### Bug Fixes
+
+* **package:** include CHANGELOG.md in published files ([a667cbd](https://github.com/SirMarkus73/network-manager/commit/a667cbd5494b2f2333c03fe1c67e678f965b6fd2))
+
 ## [1.2.1](https://github.com/SirMarkus73/network-manager/compare/v1.2.0...v1.2.1) (2025-10-31)
 
 
