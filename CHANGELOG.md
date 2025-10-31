@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/SirMarkus73/network-manager/compare/v1.3.1...v1.4.0) (2025-10-31)
+
+
+### Bug Fixes
+
+* **build:** error with pnpm audit signatures ([3be66d9](https://github.com/SirMarkus73/network-manager/commit/3be66d95f9847d28cf8acbdef632e35e611d39e8)), closes [#44](https://github.com/SirMarkus73/network-manager/issues/44)
+
+
+### Features
+
+* **git:** add commitzen to the project ([82b8a2f](https://github.com/SirMarkus73/network-manager/commit/82b8a2f07152b556bb3d485cb851f8f09d01fdd6)), closes [#40](https://github.com/SirMarkus73/network-manager/issues/40)
+
 ## [1.3.1](https://github.com/SirMarkus73/network-manager/compare/v1.3.0...v1.3.1) (2025-10-31)
 
 
