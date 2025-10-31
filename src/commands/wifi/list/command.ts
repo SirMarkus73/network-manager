@@ -1,7 +1,10 @@
 import ansi from "ansi-escapes";
 import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
-import { getWifiConnections } from "@/actions/wifi/list/action.js";
+import {
+	getWifiConnections,
+	watchWifiConnections,
+} from "@/actions/wifi/list/action.js";
 import { WIFI_CHOICES } from "@/constants/wifi.js";
 import { formatWifiTable } from "@/lib/formatWifiTable.js";
 import type { WifiFieldName } from "@/types/wifi.js";
@@ -20,18 +23,17 @@ listCommand
 	.addOption(fieldOption)
 	.addOption(watchOption)
 	.action(async (options) => {
-		process.stdout.write("\x1B[2J\x1B[0f");
+		process.stdout.write(ansi.clearTerminal);
 
 		const fields: WifiFieldName[] = Array.from(options.fields);
-		const spinner = createSpinner("Fetching WiFi connections...").start();
-		const connections = await getWifiConnections(fields);
-		spinner.success("Fetched WiFi connections");
-
-		const table = formatWifiTable(fields, connections);
-		process.stdout.write(ansi.clearScreen + table);
 
 		if (!options.watch) {
-			return;
+			const spinner = createSpinner("Fetching WiFi connections...").start();
+			const connections = await getWifiConnections(fields);
+			spinner.success("Fetched WiFi connections");
+			const table = formatWifiTable(fields, connections);
+
+			process.stdout.write(`${table}\n`);
 		}
 
 		// Configure stdin to listen for 'q' keypress to exit
@@ -52,17 +54,21 @@ listCommand
 		process.stdout.write(ansi.cursorHide);
 
 		// Start watching for changes
-		let previous = table;
+		let previous = "";
+		const spinner = createSpinner();
 
-		setInterval(async () => {
-			const newConnections = await getWifiConnections(fields);
-			const current = formatWifiTable(fields, newConnections);
+		for await (const connections of watchWifiConnections(
+			fields,
+			spinner,
+			2000,
+		)) {
+			const current = formatWifiTable(fields, connections);
 
 			if (current !== previous) {
 				previous = current;
 				process.stdout.write(
-					`${ansi.cursorTo(0, 0) + ansi.eraseDown + current}\nPress 'q' to exit the app\n`,
+					`${ansi.cursorTo(0, 0)}${ansi.eraseDown}${ansi.cursorHide}${current}\nPress 'q' to exit the app\n`,
 				);
 			}
-		}, 1000);
+		}
 	});
