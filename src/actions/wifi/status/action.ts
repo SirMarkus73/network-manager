@@ -6,7 +6,7 @@ export async function getWifiStatus(
 	fields: WifiFieldName[],
 ): Promise<WifiRow | undefined> {
 	const { stdout } = await exec(
-		`LANG=C nmcli -t -f ${fields.join(",")} device wifi list --rescan no`,
+		`LANG=C nmcli -t -f ${fields.join(",")} device wifi list`,
 	);
 
 	const lines = stdout
