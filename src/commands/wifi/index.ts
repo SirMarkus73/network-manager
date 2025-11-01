@@ -5,7 +5,9 @@ export default class WifiGroup extends Command {
 		"Manage WiFi networks (list, connect, view status, etc.)";
 
 	async run() {
-		// Mostrar la ayuda para el grupo 'wifi'
+		this.parse(WifiGroup);
+
+		// Show help by default
 		await this.config.runCommand("help", ["wifi"]);
 	}
 }
