@@ -44,9 +44,7 @@
 		"ansi-escapes": "^7.1.1",
 		"chalk": "^5.6.2",
 		"cli-table3": "^0.6.5",
-		"commander": "^14.0.1",
-		"nanospinner": "^1.2.2",
-		"table": "^6.9.0"
+		"nanospinner": "^1.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.6",
@@ -60,7 +58,6 @@
 		"shx": "^0.3.3",
 		"ts-node": "^10",
 		"tsc-alias": "^1.8.16",
-		"tsconfig-paths": "^4.2.0",
 		"tsx": "^4.20.6",
 		"typescript": "^5.6.3"
 	},
