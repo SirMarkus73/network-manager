@@ -19,6 +19,11 @@ export default class WifiStatus extends Command {
 			default: ["active", "ssid", "bssid", "signal", "chan"],
 			options: WIFI_CHOICES,
 		}),
+		json: Flags.boolean({
+			char: "j",
+			description: "output in JSON format",
+			default: false,
+		}),
 	};
 
 	public async run(): Promise<void> {
@@ -35,8 +40,19 @@ export default class WifiStatus extends Command {
 		spinner.success("Fetched WiFi status");
 
 		if (!connections) {
-			this.log(chalk.red("You are not connected to any WiFi network."));
-			return;
+			if (flags.json) {
+				this.log(
+					JSON.stringify({ error: "Not connected to any WiFi network" }),
+				);
+			} else {
+				this.log(chalk.red("You are not connected to any WiFi network."));
+			}
+			this.exit(1);
+		}
+
+		if (flags.json) {
+			this.log(JSON.stringify(connections, null, 2));
+			this.exit(0);
 		}
 
 		const table = formatWifiTable(fields, [connections]);
