@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/SirMarkus73/nmanager/compare/v2.0.0...v2.1.0) (2025-11-01)
+
+
+### Features
+
+* **cli:** add autocomplete to the terminal ([d66c0ec](https://github.com/SirMarkus73/nmanager/commit/d66c0ecb14d8d815b0ba15d6a03489c649b53e09))
+
 # [2.0.0](https://github.com/SirMarkus73/nmanager/compare/v1.5.0...v2.0.0) (2025-11-01)
 
 
