@@ -24,6 +24,11 @@ export default class WifiList extends Command {
 			default: ["active", "ssid", "bssid", "signal", "chan"],
 			options: WIFI_CHOICES,
 		}),
+		json: Flags.boolean({
+			char: "j",
+			description: "output in JSON format",
+			default: false,
+		}),
 	};
 
 	public async run(): Promise<void> {
@@ -40,10 +45,16 @@ export default class WifiList extends Command {
 			const spinner = createSpinner("Fetching WiFi connections...").start();
 			const connections = await getWifiConnections(fields);
 			spinner.success("Fetched WiFi connections");
-			const table = formatWifiTable(fields, connections);
 
-			process.stdout.write(`${table}\n`);
-			return;
+			if (flags.json) {
+				this.log(JSON.stringify(connections, null, 2));
+				return;
+			}
+
+			const table = formatWifiTable(fields, connections);
+			this.log(table);
+
+			this.exit(0);
 		}
 
 		// Configure stdin to listen for 'q' keypress to exit
@@ -65,6 +76,24 @@ export default class WifiList extends Command {
 		process.stdout.write(ansi.cursorHide);
 
 		// Start watching for changes
+
+		if (flags.json) {
+			let previousJson = "";
+
+			for await (const connections of watchWifiConnections(
+				fields,
+				undefined,
+				2000,
+			)) {
+				const currentJson = JSON.stringify(connections, null, 2);
+
+				if (currentJson !== previousJson) {
+					previousJson = currentJson;
+					this.log(currentJson);
+				}
+			}
+		}
+
 		let previous = "";
 		const spinner = createSpinner();
 
