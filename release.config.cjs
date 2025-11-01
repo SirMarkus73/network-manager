@@ -10,6 +10,7 @@ module.exports = {
 			{
 				assets: ["package.json", "CHANGELOG.md"],
 				message:
+					// biome-ignore lint/suspicious/noTemplateCurlyInString: semantic-release replaces these placeholders at runtime
 					"chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
 			},
 		],

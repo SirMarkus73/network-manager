@@ -1,5 +1,5 @@
+import { Command, Flags } from "@oclif/core";
 import ansi from "ansi-escapes";
-import { createCommand, Option } from "commander";
 import { createSpinner } from "nanospinner";
 import {
 	getWifiConnections,
@@ -8,26 +8,35 @@ import {
 import { WIFI_CHOICES } from "@/constants/wifi.js";
 import { formatWifiTable } from "@/lib/formatWifiTable.js";
 import type { WifiFieldName } from "@/types/wifi.js";
-export const listCommand = createCommand("list");
 
-listCommand.description("List available WiFi connections");
-listCommand.alias("ls");
+export default class WifiList extends Command {
+	static override description = "List available WiFi connections";
+	static override examples = ["<%= config.bin %> <%= command.id %>"];
+	static override flags = {
+		// flag with no value (-f, --force)
+		watch: Flags.boolean({ char: "w" }),
+		// flag with a value (-n, --name=VALUE)
+		name: Flags.string({ char: "n", description: "name to print" }),
+		fields: Flags.string({
+			char: "f",
+			description: "Fields to display",
+			multiple: true,
+			default: ["active", "ssid", "bssid", "signal", "chan"],
+			options: WIFI_CHOICES,
+		}),
+	};
 
-const fieldOption = new Option("-f, --fields <FIELD...>", "Fields to display")
-	.default(["active", "ssid", "bssid", "signal", "chan"])
-	.choices(WIFI_CHOICES);
+	public async run(): Promise<void> {
+		const { flags } = await this.parse(WifiList);
+		const fields = (
+			flags.fields.includes("active")
+				? flags.fields
+				: ["active", ...flags.fields]
+		) as WifiFieldName[];
 
-const watchOption = new Option("-w, --watch", "Watch changes");
-
-listCommand
-	.addOption(fieldOption)
-	.addOption(watchOption)
-	.action(async (options) => {
 		process.stdout.write(ansi.clearTerminal);
 
-		const fields: WifiFieldName[] = Array.from(options.fields);
-
-		if (!options.watch) {
+		if (!flags.watch) {
 			const spinner = createSpinner("Fetching WiFi connections...").start();
 			const connections = await getWifiConnections(fields);
 			spinner.success("Fetched WiFi connections");
@@ -73,4 +82,5 @@ listCommand
 				);
 			}
 		}
-	});
+	}
+}

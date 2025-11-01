@@ -10,10 +10,14 @@
 		"url": "https://github.com/SirMarkus73/network-manager"
 	},
 	"scripts": {
-		"build": "tsc && tsc-alias",
+		"build": "shx rm -rf dist && tsc -b && tsc-alias",
+		"dev": "tsx ./bin/dev.ts",
+		"start": "node ./bin/run.js",
+		"version": "oclif readme && git add README.md",
+		"postpack": "shx rm -f oclif.manifest.json",
+		"posttest": "pnpm run lint",
+		"prepack": "oclif manifest && oclif readme",
 		"commit": "cz",
-		"dev": "pnpm run build && pnpm run start",
-		"start": "node dist/index.js",
 		"format": "biome format --write",
 		"lint": "biome lint && tsc --noEmit",
 		"lint:fix": "biome lint --fix",
@@ -27,19 +31,20 @@
 		"manager"
 	],
 	"bin": {
-		"nmanager": "dist/index.js"
+		"nmanager": "./bin/run.js"
 	},
 	"author": "Marcos Barrero",
 	"license": "MIT",
 	"packageManager": "pnpm@10.20.0",
 	"dependencies": {
 		"@inquirer/prompts": "^7.9.0",
+		"@oclif/core": "^4",
+		"@oclif/plugin-help": "^6",
+		"@oclif/plugin-plugins": "^5",
 		"ansi-escapes": "^7.1.1",
 		"chalk": "^5.6.2",
 		"cli-table3": "^0.6.5",
-		"commander": "^14.0.1",
-		"nanospinner": "^1.2.2",
-		"table": "^6.9.0"
+		"nanospinner": "^1.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.6",
@@ -48,15 +53,18 @@
 		"@semantic-release/git": "^10.0.1",
 		"@types/node": "^22.7.5",
 		"cz-conventional-changelog": "^3.3.0",
+		"oclif": "^4",
 		"semantic-release": "^25.0.1",
+		"shx": "^0.3.3",
+		"ts-node": "^10",
 		"tsc-alias": "^1.8.16",
+		"tsx": "^4.20.6",
 		"typescript": "^5.6.3"
 	},
 	"files": [
-		"dist",
-		"README.MD",
-		"LICENSE",
-		"CHANGELOG.md"
+		"./bin",
+		"./dist",
+		"./oclif.manifest.json"
 	],
 	"publishConfig": {
 		"access": "public"
@@ -70,5 +78,15 @@
 		"overrides": {
 			"tmp": "^0.2.4"
 		}
+	},
+	"oclif": {
+		"bin": "nmanager",
+		"dirname": "nmanager",
+		"commands": "./dist/commands",
+		"plugins": [
+			"@oclif/plugin-help",
+			"@oclif/plugin-plugins"
+		],
+		"topicSeparator": " "
 	}
 }
