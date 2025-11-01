@@ -1,3 +1,27 @@
+# [2.0.0](https://github.com/SirMarkus73/nmanager/compare/v1.5.0...v2.0.0) (2025-11-01)
+
+
+### Bug Fixes
+
+* **lockfile:** update pnpm-lock.yaml ([7de9f27](https://github.com/SirMarkus73/nmanager/commit/7de9f276c468757d5af882cdf92037ce4804cca5)), closes [#48](https://github.com/SirMarkus73/nmanager/issues/48)
+* **package:** incorrect typo ([6b4d123](https://github.com/SirMarkus73/nmanager/commit/6b4d1234c3c274f10b8ef91514bfda7c28d3600a))
+* **package:** update homepage and repository URLs in package.json ([f4e480d](https://github.com/SirMarkus73/nmanager/commit/f4e480dc525a26773836d089f49daaa4522d0c12))
+* **release:** add biome-ignore comment for semantic-release template ([eedb3c4](https://github.com/SirMarkus73/nmanager/commit/eedb3c45cb2d7a8d661dccf46788927177162d78))
+* remove unused command that was causing ci:tsc to fail ([cac7c6f](https://github.com/SirMarkus73/nmanager/commit/cac7c6fb99c4ff765301797e68083651378100b0)), closes [#48](https://github.com/SirMarkus73/nmanager/issues/48)
+* **wifi:** parse WifiGroup ([f694d1f](https://github.com/SirMarkus73/nmanager/commit/f694d1f96e02387e23095916d1f86d095f066fc9)), closes [#47](https://github.com/SirMarkus73/nmanager/issues/47)
+
+
+### Code Refactoring
+
+* replace commander with Oclif ([da782ba](https://github.com/SirMarkus73/nmanager/commit/da782ba37696ded727244302f3cffb5b9d72faf9))
+
+
+### BREAKING CHANGES
+
+* Command file structure is changed
+
+47
+
 # [1.5.0](https://github.com/SirMarkus73/network-manager/compare/v1.4.0...v1.5.0) (2025-10-31)
 
 
