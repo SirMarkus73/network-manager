@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/SirMarkus73/nmanager/compare/v2.1.0...v2.2.0) (2025-11-01)
+
+
+### Features
+
+* **list,status:** add --json (-j) flag to wifi list/status ([f28a531](https://github.com/SirMarkus73/nmanager/commit/f28a53185c089adf6aeb7136b201cf19a71ac2aa)), closes [#49](https://github.com/SirMarkus73/nmanager/issues/49)
+
 # [2.1.0](https://github.com/SirMarkus73/nmanager/compare/v2.0.0...v2.1.0) (2025-11-01)
 
 
