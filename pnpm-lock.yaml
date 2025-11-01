@@ -17,6 +17,9 @@ importers:
       '@oclif/core':
         specifier: ^4
         version: 4.8.0
+      '@oclif/plugin-autocomplete':
+        specifier: ^3.2.38
+        version: 3.2.38
       '@oclif/plugin-help':
         specifier: ^6
         version: 6.2.34
@@ -677,6 +680,10 @@ packages:
 
   '@oclif/core@4.8.0':
     resolution: {integrity: sha512-jteNUQKgJHLHFbbz806aGZqf+RJJ7t4gwF4MYa8fCwCxQ8/klJNWc0MvaJiBebk7Mc+J39mdlsB4XraaCKznFw==}
+    engines: {node: '>=18.0.0'}
+
+  '@oclif/plugin-autocomplete@3.2.38':
+    resolution: {integrity: sha512-mjBADB+Cgpqv/Sema5nJYm4a9RHw/53Kku5opNCrnIvnvNYnr2u/ydVl95yvDLzctSoZ0VsJfXHupzTyLTLFqw==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.34':
@@ -3931,6 +3938,15 @@ snapshots:
       widest-line: 3.1.0
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
+
+  '@oclif/plugin-autocomplete@3.2.38':
+    dependencies:
+      '@oclif/core': 4.8.0
+      ansis: 3.17.0
+      debug: 4.4.3(supports-color@8.1.1)
+      ejs: 3.1.10
+    transitivePeerDependencies:
+      - supports-color
 
   '@oclif/plugin-help@6.2.34':
     dependencies:
