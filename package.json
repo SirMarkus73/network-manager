@@ -4,10 +4,10 @@
 	"description": "A network manager cli",
 	"main": "dist/index.js",
 	"type": "module",
-	"homepage": "https://github.com/SirMarkus73/nmanger",
+	"homepage": "https://github.com/SirMarkus73/nmanager",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SirMarkus73/nmanger"
+		"url": "https://github.com/SirMarkus73/nmanager"
 	},
 	"scripts": {
 		"build": "shx rm -rf dist && tsc -b && tsc-alias",
