@@ -4,7 +4,7 @@ import { createSpinner } from "nanospinner";
 import {
 	getWifiConnections,
 	watchWifiConnections,
-} from "@/actions/wifi/list/action.js";
+} from "@/actions/wifi/list.js";
 import { WIFI_CHOICES } from "@/constants/wifi.js";
 import { formatWifiTable } from "@/lib/formatWifiTable.js";
 import type { WifiFieldName } from "@/types/wifi.js";

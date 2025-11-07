@@ -5,7 +5,7 @@ import { createSpinner } from "nanospinner";
 import {
 	connectAction,
 	connectInteractiveAction,
-} from "@/actions/wifi/connect/action.js";
+} from "@/actions/wifi/connect.js";
 
 export default class WifiConnect extends Command {
 	static override args = {

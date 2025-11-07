@@ -1,7 +1,7 @@
 import { Command, Flags } from "@oclif/core";
 import chalk from "chalk";
 import { createSpinner } from "nanospinner";
-import { getWifiStatus } from "@/actions/wifi/status/action.js";
+import { getWifiStatus } from "@/actions/wifi/status.js";
 import { WIFI_CHOICES } from "@/constants/wifi.js";
 import { formatWifiTable } from "@/lib/formatWifiTable.js";
 import type { WifiFieldName } from "@/types/wifi.js";
